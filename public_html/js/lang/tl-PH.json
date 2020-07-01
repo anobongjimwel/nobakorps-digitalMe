@@ -1,0 +1,59 @@
+{
+  "codes": {
+      "long_code": "tl-PH",
+      "short_code": "tl"
+  },
+  "applicants": {
+    "sentences": {
+      "no_new_announcements": "Kasalukuyan, wala pang kahit anong mga anunsyo",
+      "no_new_postings": "Kasalukuyan, wala pang mga bagong job postings",
+      "upload_documents": "Mga Upload Ng Mga Dokumento"
+    },
+    "words": {
+      "site_name": "DigitalMe",
+      "nav_navigation": "Navigation",
+      "nav_digitalmelinks": "DigitalMe Links",
+      "nav_logout": "Mag log-out",
+      "nav_home": "Home",
+      "nav_profile": "Profile",
+      "nav_skills": "Mga I-skill",
+      "nav_documents": "Mga Dokumento",
+      "nav_experiences": "Mga Karanasan",
+      "nav_statistics": "Mga Istatistika",
+      "nav_announcements": "Mga Anunsyo",
+      "nav_privacy_policy": "Patakaran sa Privacy",
+      "nav_terms_and_agreements": "Mga Tuntunin at Kasunduan",
+      "nav_about_digitalme": "Patungkol sa DigitalMe",
+      "nav_about_the_programmers": "Patungkol sa mga Programmers",
+      "nav_job_postings": "Mga Posting ng Trabaho",
+      "nav_help": "Tulong",
+      "nav_settings": "Settings",
+      "nav_posting_filters": "Mga Filter ng Posting",
+      "nav_language_settings": "Mga Settings ng Wika",
+      "nav_account_settings": "Mga Settings ng Akawnt",
+      "footer_1": "Nobakorps, STI College of Novaliches",
+      "footer_2": "Isang Proyekto para sa Unionbank Xcellerator Program",
+      "document_type": "Uri ng Dokumento",
+      "doc_types": {
+        "passport": "Passport",
+        "drivers_license": "Driver's License",
+        "sss_umid_card": "SSS Unified Multipurpose ID Card",
+        "philhealth_id": "PhilHealth ID",
+        "tin_card": "Taxpayers Idenfication Card",
+        "postal_id": "Postal ID",
+        "voters_id": "Voters ID",
+        "prc_id": "Professional Regulation Commission ID",
+        "ofw_id": "Overseas Filipino Workers ID",
+        "acr_id": "Alien Certificate of Registration I-Card"
+      }
+    }
+  },
+  "languages": {
+      "en-US": "Ingles (Estados Unidos)",
+      "ja-JA": "Hapones (Hapon)",
+      "tl-PH": "Filipino (Philippines)"
+  },
+  "img": {
+      "logo": "en-logo.png"
+  }
+}

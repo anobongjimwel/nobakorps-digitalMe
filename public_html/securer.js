@@ -4,11 +4,16 @@ const passwordHash = require('password-hash')
 
 module.exports = {
     hashpassword: hashpassword,
-    tokenize: tokenize
+    tokenize: tokenize,
+    confirmpassword: confirmpassword
 }
 
 function hashpassword(password) {
-    return "dm605$"+passwordHash.generate(password).substr(5)+"$$$"
+    return passwordHash.generate(password)
+}
+
+function confirmpassword(password, hashedpassword) {
+    return passwordHash.verify(password, hashedpassword)
 }
 
 function tokenize(accountType, stringToToken) {

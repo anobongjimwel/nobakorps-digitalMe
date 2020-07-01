@@ -1,0 +1,59 @@
+{
+  "codes": {
+      "long_code": "ja-JA",
+      "short_code": "ja"
+  },
+  "applicants": {
+    "sentences": {
+      "no_new_announcements": "現在、新しいお知らせはありません",
+      "no_new_postings": "現在、新しい投稿はありません",
+      "upload_documents": "ドキュメントをアップロードする"
+    },
+    "words": {
+      "site_name": "デジタルミー",
+      "nav_navigation": "航海",
+      "nav_digitalmelinks": "デジタルミーリンク集",
+      "nav_logout": "ログアウト",
+      "nav_home": "ホーム",
+      "nav_profile": "プロフィール",
+      "nav_skills": "スキル",
+      "nav_documents": "書類",
+      "nav_experiences": "体験",
+      "nav_statistics": "統計学",
+      "nav_announcements": "発表",
+      "nav_privacy_policy": "個人情報保護方針",
+      "nav_terms_and_agreements": "利用規約",
+      "nav_about_digitalme": "デジタルミーについて",
+      "nav_about_the_programmers": "プログラマーについて",
+      "nav_job_postings": "求人情報",
+      "nav_help": "助けて",
+      "nav_settings": "設定",
+      "nav_posting_filters": "投稿フィルター",
+      "nav_language_settings": "言語設定",
+      "nav_account_settings": "アカウント設定",
+      "footer_1": "ノバコープス、STIノバリチェス大学",
+      "footer_2": "Unionbank Xcelleratorプログラムのプロジェクト",
+      "document_type": "ドキュメントタイプ",
+      "doc_types": {
+        "passport": "パスポート",
+        "drivers_license": "運転免許証",
+        "sss_umid_card": "SSS統合多目的IDカード",
+        "philhealth_id": "PhilHealth ID",
+        "tin_card": "納税者識別カード",
+        "postal_id": "郵便番号",
+        "voters_id": "投票者ID",
+        "prc_id": "専門規制委員会ID",
+        "ofw_id": "海外フィリピン人労働者ID",
+        "acr_id": "外国人登録証明書Iカード"
+      }
+    }
+  },
+  "languages": {
+      "en-US": "英語（アメリカ）",
+      "ja-JA": "日本語（日本）",
+      "tl-PH": "フィリピン語 (フィリピン)"
+  },
+  "img": {
+      "logo": "ja-logo.png"
+  }
+}

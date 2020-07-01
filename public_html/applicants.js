@@ -24,18 +24,8 @@ app.use(session({
 
 module.exports = {
     apply: apply,
-    hasDuplicate: (walletAddress, emailAddress) => {
-        // mongo.connect(mongourl, mongoopts)
-        // function(err, db) {
-        //     if (err) throw err;
-        //     var dbo = db.db("digitalme");
-        //     var query = { $or: [{ walletAddress: walletAddress, emailAddress: emailAddress }] }
-        //     dbo.collection("applicants").find(query).toArray(function(err, result) {
-        //         if (err) throw err
-        //         db.close()
-        //     })
-        // })
-    },
+    hasDuplicates: hasDuplicates,
+    login: login
 }
 
 // Async Functions
@@ -63,7 +53,8 @@ async function apply(walletAddress, emailAddress, password, name, physicalAddres
                 salaryCeilingCurrency: salaryCeilingCurrency,
                 salaryCeiling: salaryCeiling,
                 token: securer.tokenize("applicant", walletAddress),
-                resetPasscode: Math.floor(Math.random()*1000001)
+                resetPasscode: Math.floor(Math.random()*1000001),
+                views: 0
             }
             var insertion = db.collection('applicants').insertOne(applicant, (err, result) => {
                 if (err !== null) {
@@ -88,15 +79,37 @@ async function hasDuplicates(walletAddress, emailAddress) {
         mongo.connect(mongourl, mongoopts, (err, con) => {
             if (err) reject(err)
             db = con.db('digitalme')
-            var query = { $or: [{ walletAddress: walletAddress, emailAddress: emailAddress }] }
+            var query = { $or: [{ walletAddress: walletAddress}, {emailAddress: emailAddress }] }
             db.collection("applicants").find(query).toArray(function(err, result) {
-                if (err) {
+                if (err != null) {
                     logger.logError("An error has occured in finding duplicates for ("+walletAddress+") and "+"("+emailAddress+")")
                     return reject(err)
                 } else {
-                    db.close()
-                    console.log(result)
-                    return resolve(true)
+                    return resolve(result)
+                }
+            })
+        })
+    })
+}
+
+async function login(emailAddress, password) {
+    return new Promise((resolve, reject) => {
+        mongo.connect(mongourl, mongoopts, (err, con) => {
+            if (err) reject(err)
+            db = con.db('digitalme')
+            var query = { $and: [{emailAddress: emailAddress}] }
+            db.collection("applicants").find(query).toArray(function(err, result) {
+                if (err != null) {
+                    return reject(err)
+                } else {
+                    if (result.length!=1) {
+
+                    } else {
+                        if (securer.confirmpassword(password, result[0].password)) resolve(true)
+                            resolve([]) 
+                    }
+                    console.log(result[0])
+                    return resolve(result)
                 }
             })
         })
