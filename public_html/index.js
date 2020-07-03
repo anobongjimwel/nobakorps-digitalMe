@@ -40,6 +40,18 @@ app.get('/applicant', (req, res) => {
 	res.render('applicant_index')
 })
 
+app.get('/applicant', (req, res) => {
+	if (req.session.lang === undefined) req.session.lang = 'en-US'
+	res.locals.lang = lang[req.session.lang]
+	res.render('applicant_index')
+})
+
+app.get('/applicant/login', (req, res) => {
+	if (req.session.lang === undefined) req.session.lang = 'en-US'
+	res.locals.lang = lang[req.session.lang]
+	res.render('applicant_login')
+})
+
 app.get('/applicant/documents', (req, res) => {
 	if (req.session.lang === undefined) req.session.lang = 'en-US'
 	res.locals.lang = lang[req.session.lang]

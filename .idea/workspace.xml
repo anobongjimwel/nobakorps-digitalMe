@@ -2,25 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="59dd8115-ff8c-485c-87dd-20f1f6dc20fa" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public_html/js/lang/en-US.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/js/lang/ja-JA.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/js/lang/languages.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/js/lang/tl-PH.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/views/applicant_documents.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/views/applicant_footer.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/views/applicant_index.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/views/applicant_left_side_nav.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/views/applicant_right_side_nav.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/views/applicant_settings.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/views/header.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/views/nav.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public_html/css/bootstrap.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public_html/views/applicant_login.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public_html/applicants.js" beforeDir="false" afterPath="$PROJECT_DIR$/public_html/applicants.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layouts/Backup_of_DigitalMe.cdr" beforeDir="false" afterPath="$PROJECT_DIR$/layouts/Backup_of_DigitalMe.cdr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layouts/DigitalMe.cdr" beforeDir="false" afterPath="$PROJECT_DIR$/layouts/DigitalMe.cdr" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public_html/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/public_html/css/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public_html/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/public_html/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public_html/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/public_html/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public_html/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/public_html/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public_html/securer.js" beforeDir="false" afterPath="$PROJECT_DIR$/public_html/securer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/js/lang/en-US.json" beforeDir="false" afterPath="$PROJECT_DIR$/public_html/js/lang/en-US.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/js/lang/ja-JA.json" beforeDir="false" afterPath="$PROJECT_DIR$/public_html/js/lang/ja-JA.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/js/lang/tl-PH.json" beforeDir="false" afterPath="$PROJECT_DIR$/public_html/js/lang/tl-PH.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/views/applicant_documents.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/public_html/views/applicant_documents.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/views/applicant_right_side_nav.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/public_html/views/applicant_right_side_nav.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/views/header.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/public_html/views/header.ejs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,20 +46,21 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/public_html/views" />
     <property name="nodejs.mocha.mocha_node_package_dir" value="" />
     <property name="nodejs_interpreter_path" value="node" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.completion" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\digitalMe\public_html" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\digitalMe\public_html\views" />
       <recent name="C:\digitalMe\public_html\js\lang" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\digitalMe\public_html" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -154,6 +150,11 @@
       <workItem from="1593491450934" duration="81000" />
       <workItem from="1593527445207" duration="14885000" />
       <workItem from="1593566814564" duration="10223000" />
+      <workItem from="1593591915557" duration="2863000" />
+      <workItem from="1593707611282" duration="4436000" />
+      <workItem from="1593734086082" duration="1960000" />
+      <workItem from="1593736064613" duration="75000" />
+      <workItem from="1593736151404" duration="3209000" />
     </task>
     <servers />
   </component>
@@ -241,14 +242,15 @@
       <screen x="1920" y="-50" width="1920" height="1050" />
     </state>
     <state width="1570" height="269" key="GridCell.Tab.3.right/0.0.1920.1050/1920.-50.1920.1050@1920.-50.1920.1050" timestamp="1593063131991" />
-    <state x="2383" y="121" key="SettingsEditor" timestamp="1593103807335">
+    <state x="463" y="171" key="SettingsEditor" timestamp="1593736139110">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="463" y="171" key="SettingsEditor/0.0.1920.1050/1920.-50.1920.1050@0.0.1920.1050" timestamp="1593736139110" />
+    <state x="2383" y="121" key="SettingsEditor/0.0.1920.1050/1920.-50.1920.1050@1920.-50.1920.1050" timestamp="1593736048046" />
+    <state x="2525" y="65" width="710" height="819" key="find.popup" timestamp="1593709858458">
       <screen x="1920" y="-50" width="1920" height="1050" />
     </state>
-    <state x="2383" y="121" key="SettingsEditor/0.0.1920.1050/1920.-50.1920.1050@1920.-50.1920.1050" timestamp="1593103807335" />
-    <state x="2525" y="65" width="710" height="819" key="find.popup" timestamp="1593583663728">
-      <screen x="1920" y="-50" width="1920" height="1050" />
-    </state>
-    <state x="2525" y="65" width="710" height="819" key="find.popup/0.0.1920.1050/1920.-50.1920.1050@1920.-50.1920.1050" timestamp="1593583663728" />
+    <state x="2525" y="65" width="710" height="819" key="find.popup/0.0.1920.1050/1920.-50.1920.1050@1920.-50.1920.1050" timestamp="1593709858458" />
     <state x="2596" y="287" key="jetbrains.nodejs.interpreters-dialog" timestamp="1593086327909">
       <screen x="1920" y="-50" width="1920" height="1050" />
     </state>
@@ -257,10 +259,14 @@
       <screen x="1920" y="-50" width="1920" height="1050" />
     </state>
     <state x="2574" y="333" width="661" height="281" key="org.intellij.images.editor.actions.BackgroundImageDialog/0.0.1920.1050/1920.-50.1920.1050@1920.-50.1920.1050" timestamp="1593058931499" />
-    <state x="2543" y="177" width="672" height="678" key="search.everywhere.popup" timestamp="1593568492165">
+    <state x="2538" y="219" key="run.anything.popup" timestamp="1593736890778">
       <screen x="1920" y="-50" width="1920" height="1050" />
     </state>
-    <state x="2543" y="177" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050/1920.-50.1920.1050@1920.-50.1920.1050" timestamp="1593568492165" />
+    <state x="2538" y="219" key="run.anything.popup/0.0.1920.1050/1920.-50.1920.1050@1920.-50.1920.1050" timestamp="1593736890778" />
+    <state x="2543" y="177" width="672" height="678" key="search.everywhere.popup" timestamp="1593709614930">
+      <screen x="1920" y="-50" width="1920" height="1050" />
+    </state>
+    <state x="2543" y="177" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050/1920.-50.1920.1050@1920.-50.1920.1050" timestamp="1593709614930" />
     <state x="2543" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050/1920.0.1920.1050@1920.0.1920.1050" timestamp="1585098305650" />
   </component>
 </project>

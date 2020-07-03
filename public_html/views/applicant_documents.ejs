@@ -20,12 +20,19 @@
                                 <div class="card-body">
                                     <form>
                                         <label for="doctype"><%- lang.applicants.words.document_type%>:</label>
-
                                         <select id="doctype" class="form-control">
                                             <% for (var doctype in lang.applicants.words.doc_types) { %>
                                                 <option value="<%- doctype %>"><%- lang.applicants.words.doc_types[doctype] %></option>
                                             <% } %>
                                         </select>
+                                        <br />
+                                        <label for="docfile"><%- lang.applicants.words.document_file %>:</label>
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="docfile">
+                                            <label class="custom-file-label" for="docfile"><%- lang.applicants.words.choose_file %></label>
+                                        </div>
+                                        <br /><br />
+                                        <button class="btn btn-primary btn-md float-right" type="submit"><%- lang.applicants.words.upload_btn %></button>
                                     </form>
                                 </div>
                             </div>
@@ -69,6 +76,11 @@
     <%- include ('applicant_footer')%>
     <script>
         $('.nav-documents').addClass("active")
+
+        $(".custom-file-input").on("change", function() {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        });
     </script>
     <style>
         .list-group.documents > .list-group-item:hover {

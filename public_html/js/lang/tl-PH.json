@@ -13,7 +13,8 @@
       "site_name": "DigitalMe",
       "nav_navigation": "Navigation",
       "nav_digitalmelinks": "DigitalMe Links",
-      "nav_logout": "Mag log-out",
+      "nav_logout": "Mag Log-out",
+      "nav_login": "Mag Log-in",
       "nav_home": "Home",
       "nav_profile": "Profile",
       "nav_skills": "Mga I-skill",
@@ -31,6 +32,7 @@
       "nav_posting_filters": "Mga Filter ng Posting",
       "nav_language_settings": "Mga Settings ng Wika",
       "nav_account_settings": "Mga Settings ng Akawnt",
+      "nav_sponsored": "SPONSORED",
       "footer_1": "Nobakorps, STI College of Novaliches",
       "footer_2": "Isang Proyekto para sa Unionbank Xcellerator Program",
       "document_type": "Uri ng Dokumento",
@@ -44,8 +46,12 @@
         "voters_id": "Voters ID",
         "prc_id": "Professional Regulation Commission ID",
         "ofw_id": "Overseas Filipino Workers ID",
-        "acr_id": "Alien Certificate of Registration I-Card"
-      }
+        "acr_id": "Alien Certificate of Registration I-Card",
+        "resume": "Resume"
+      },
+      "document_file": "Payl ng Dokumento",
+      "choose_file": "Mamili ng Payl",
+      "upload_btn": "I-upload"
     }
   },
   "languages": {
@@ -55,5 +61,32 @@
   },
   "img": {
       "logo": "en-logo.png"
+  },
+  "ads": {
+    "0": {
+      "img": "sti-1.jpg",
+      "title": "STI College of Novaliches",
+      "description": "Mag-enroll na sa STI College of Novaliches. I-click dito upang magpatuloy"
+    },
+    "1": {
+      "img": "sti-2.jpg",
+      "title": "STI College of Novaliches",
+      "description": "Mag-enroll na sa STI College of Novaliches. I-click dito upang magpatuloy"
+    },
+    "2": {
+      "img": "ub-1.jpg",
+      "title": "Unionbank of the Philippines",
+      "description": "Mas madali at mas mabilis na banking experience ang mayroon dito sa Unionbank. I-click lamang dito upang magpatuloy"
+    },
+    "3": {
+      "img": "ub-2.jpg",
+      "title": "Unionbank of the Philippines",
+      "description": "Mas madali at mas mabilis na banking experience ang mayroon dito sa Unionbank. I-click lamang dito upang magpatuloy"
+    },
+    "4": {
+      "img": "ub-3.jpg",
+      "title": "Unionbank of the Philippines",
+      "description": "Mas madali at mas mabilis na banking experience ang mayroon dito sa Unionbank. I-click lamang dito upang magpatuloy"
+    }
   }
 }

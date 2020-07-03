@@ -14,6 +14,7 @@
       "nav_navigation": "航海",
       "nav_digitalmelinks": "デジタルミーリンク集",
       "nav_logout": "ログアウト",
+      "nav_login": "ログイン",
       "nav_home": "ホーム",
       "nav_profile": "プロフィール",
       "nav_skills": "スキル",
@@ -31,6 +32,7 @@
       "nav_posting_filters": "投稿フィルター",
       "nav_language_settings": "言語設定",
       "nav_account_settings": "アカウント設定",
+      "nav_sponsored": "スポンサー",
       "footer_1": "ノバコープス、STIノバリチェス大学",
       "footer_2": "Unionbank Xcelleratorプログラムのプロジェクト",
       "document_type": "ドキュメントタイプ",
@@ -44,8 +46,12 @@
         "voters_id": "投票者ID",
         "prc_id": "専門規制委員会ID",
         "ofw_id": "海外フィリピン人労働者ID",
-        "acr_id": "外国人登録証明書Iカード"
-      }
+        "acr_id": "外国人登録証明書Iカード",
+        "resume": "履歴書"
+      },
+      "document_file": "ドキュメントファイル",
+      "choose_file": "ファイルを選ぶ",
+      "upload_btn": "アップロードする"
     }
   },
   "languages": {
@@ -55,5 +61,32 @@
   },
   "img": {
       "logo": "ja-logo.png"
+  },
+  "ads": {
+    "0": {
+      "img": "sti-1.jpg",
+      "title": "STIカレッジオブノバリチェス",
+      "description": "今すぐSTIカレッジオブノバリチェスに登録します。 ここをクリックしてウェブサイトにアクセスしてください"
+    },
+    "1": {
+      "img": "sti-2.jpg",
+      "title": "STIカレッジオブノバリチェス",
+      "description": "今すぐSTIカレッジオブノバリチェスに登録します。 ここをクリックしてウェブサイトにアクセスしてください"
+    },
+    "2": {
+      "img": "ub-1.jpg",
+      "title": "フィリピンのユニオンバンク",
+      "description": "Unionbankを使用したより簡単で迅速な銀行業務。 ここをクリックしてアカウントを作成してください。"
+    },
+    "3": {
+      "img": "ub-2.jpg",
+      "title": "フィリピンのユニオンバンク",
+      "description": "Unionbankを使用したより簡単で迅速な銀行業務。 ここをクリックしてアカウントを作成してください。"
+    },
+    "4": {
+      "img": "ub-3.jpg",
+      "title": "フィリピンのユニオンバンク",
+      "description": "Unionbankを使用したより簡単で迅速な銀行業務。 ここをクリックしてアカウントを作成してください。"
+    }
   }
 }
