@@ -13,6 +13,7 @@ contract Applicants {
         string name;
             uint nameChanges;
         string physicalAddress;
+        string location;
         string nationality;
         bool exists;
 
@@ -163,7 +164,7 @@ contract Applicants {
 
     // Applicants
 
-    function setApplicant (address _address, string memory _name, string memory _physicalAddress, string memory _nationality, string memory _administrativeCode) public returns (bool) {
+    function setApplicant (address _address, string memory _name, string memory _physicalAddress, string memory _location, string memory _nationality, string memory _administrativeCode) public returns (bool) {
         if (!applicants[_address].exists && compareStrings(_administrativeCode,"sudo")) {
             Applicant storage applicant = applicants[_address];
             applicant.name = _name;
@@ -177,6 +178,11 @@ contract Applicants {
                 applicants[_address].nationality = "---";
             } else {
                 applicants[_address].nationality = _nationality;
+            }
+            if (compareStrings(_location,"")) {
+                applicants[_address].location = "---";
+            } else {
+                applicants[_address].location = _location;
             }
             applicants[_address].salaryFlooring = createStipend("Php", 0);
             applicants[_address].salaryCeiling = createStipend("Php", 0);

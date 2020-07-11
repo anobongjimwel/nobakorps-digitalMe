@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="<%- lang.codes.short_code %>">
+<head>
+    <title><%- lang.applicants.words.site_name+" - "+lang.applicants.words.nav_language_proficiencies %></title>
+    <%- include ('header.ejs') %>
+</head>
+<body>
+    <%- include ('applicant_nav.ejs') %>
+    <div class="container-fluid mainContainer">
+        <div class="container">
+            <div class="row" style="top: 200px; position: sticky">
+                <%- include ('applicant_left_side_nav.ejs') %>
+                <div class="col-lg-6 pt-4">
+                    <div class="row documentUploader">
+                        <div class="col-12">
+                            <div class="card" id="addNewSkillAccordion">
+                                <div class="card-header navlink" data-toggle="collapse" data-target="#addNewSkillSub" data-parent="addNewSkillAccordion">
+                                    Add New Skill
+                                </div>
+                                <div class="card-body collapse" id="addNewSkillSub">
+                                    <div id="showCard" class="d-none">
+                                        <div class="card border-danger">
+                                            <div class="card-body">
+                                                <b><%- lang.applicants.sentences.documentupload_double_check %></b><br />
+                                                <span id="doctypeWarning"><span class="badge badge-pill badge-danger">&nbsp;</span>&nbsp;<%- lang.applicants.sentences.documentupload_doctype_empty %><br /></span>
+                                                <span id="docfileWarning"><span class="badge badge-pill badge-danger">&nbsp;</span>&nbsp;<%- lang.applicants.sentences.documentupload_docfile_empty %></span>
+                                            </div>
+                                        </div>
+                                        <br />
+                                    </div>
+                                    <form method="post" action="/applicant/document/upload" enctype="multipart/form-data" onsubmit="return submitDocument()">
+                                        <label for="skill">Skill:</label>
+                                        <select class="form-control" id="skill" name="skill">
+                                            <option value="asd">adss</option>
+                                            <option value="asd">adss</option>
+                                            <option value="asd">adss</option>
+                                            <option value="asd">adss</option>
+                                        </select>
+                                        <br />
+                                        <button class="btn btn-primary btn-md float-right" type="submit"><%- lang.applicants.words.upload_btn %></button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 pt-4">
+                            <div class="card">
+                                <div class="card-header">Skills</div>
+                                <ul class="list-group list-group-flush documents">
+                                    <li class="list-group-item">
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <span>Skill Name</span><br />
+                                            </div>
+                                            <div class="col-6">
+                                                <span class="delete_btn float-right">
+                                                    <i class="fa fa-trash"></i> Delete
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <%- include ('applicant_right_side_nav.ejs') %>
+                </div>
+            </div>
+        <div class="pt-5 pb-5"></div>
+    </div>
+    <%- include ('applicant_footer')%>
+    <script>
+        $('.nav-skills').addClass("active")
+
+        $('.custom-file-input').on('change', function() {
+            var filename = $(this).val().split('\\').pop()
+            $(this).siblings('.custom-file-label')
+                .addClass('selected')
+                .html(filename)
+        })
+
+        function submitDocument() {
+            var submit = true
+            var doctype = $('#doctype').val()
+            var docfile = $('#docfile').val()
+            if (docfile === '') {
+                submit = false
+                $('#docfileWarning').addClass('d-block').removeClass('d-none')
+            } else {
+                $('#docfileWarning').removeClass('d-block').addClass('d-none')
+            }
+            if (doctype === '') {
+                submit = false
+                $('#doctypeWarning').addClass('d-block').removeClass('d-none')
+            } else {
+                $('#doctypeWarning').removeClass('d-block').addClass('d-none')
+            }
+            if (!submit) $('#showCard').addClass('d-block').removeClass('d-none')
+                else $('#showCard').removeClass('d-block').addClass('d-none')
+            return submit
+        }
+
+        $('.collapse').collapse('hide')
+    </script>
+    <style>
+        .list-group.documents > .list-group-item:hover {
+            background-color: deeppink;
+            color: white;
+            cursor: pointer;
+        }
+
+        .delete_btn:hover {
+            color: purple !important;
+        }
+    </style>
+</body>

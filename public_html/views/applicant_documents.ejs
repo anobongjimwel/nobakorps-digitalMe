@@ -5,22 +5,32 @@
     <%- include ('header.ejs') %>
 </head>
 <body>
-    <%- include ('nav.ejs') %>
+    <%- include ('applicant_nav.ejs') %>
     <div class="container-fluid mainContainer">
         <div class="container">
             <div class="row" style="top: 200px; position: sticky">
                 <%- include ('applicant_left_side_nav.ejs') %>
                 <div class="col-lg-6 pt-4">
-                    <div class="row">
+                    <div class="row documentUploader">
                         <div class="col-12">
-                            <div class="card">
-                                <div class="card-header">
+                            <div class="card" id="uploadDocumentsAccordion">
+                                <div class="card-header navlink" data-toggle="collapse" data-target="#uploadDocumentsSub" data-parent="uploadDocumentsAccordion">
                                     <%- lang.applicants.sentences.upload_documents %>
                                 </div>
-                                <div class="card-body">
-                                    <form>
+                                <div class="card-body collapse" id="uploadDocumentsSub">
+                                    <div id="showCard" class="d-none">
+                                        <div class="card border-danger">
+                                            <div class="card-body">
+                                                <b><%- lang.applicants.sentences.documentupload_double_check %></b><br />
+                                                <span id="doctypeWarning"><span class="badge badge-pill badge-danger">&nbsp;</span>&nbsp;<%- lang.applicants.sentences.documentupload_doctype_empty %><br /></span>
+                                                <span id="docfileWarning"><span class="badge badge-pill badge-danger">&nbsp;</span>&nbsp;<%- lang.applicants.sentences.documentupload_docfile_empty %></span>
+                                            </div>
+                                        </div>
+                                        <br />
+                                    </div>
+                                    <form method="post" action="/applicant/document/upload"enctype="multipart/form-data" onsubmit="return submitDocument()">
                                         <label for="doctype"><%- lang.applicants.words.document_type%>:</label>
-                                        <select id="doctype" class="form-control">
+                                        <select id="doctype" class="form-control" name="doctype"  v-model="documentType">
                                             <% for (var doctype in lang.applicants.words.doc_types) { %>
                                                 <option value="<%- doctype %>"><%- lang.applicants.words.doc_types[doctype] %></option>
                                             <% } %>
@@ -28,7 +38,7 @@
                                         <br />
                                         <label for="docfile"><%- lang.applicants.words.document_file %>:</label>
                                         <div class="custom-file">
-                                            <input type="file" class="custom-file-input" id="docfile">
+                                            <input type="file" class="custom-file-input" id="docfile" name="file" accept="image/jpeg, application/pdf">
                                             <label class="custom-file-label" for="docfile"><%- lang.applicants.words.choose_file %></label>
                                         </div>
                                         <br /><br />
@@ -39,34 +49,33 @@
                         </div>
                         <div class="col-12 pt-4">
                             <div class="card">
-                            <ul class="list-group list-group-flush documents">
-                                <li class="list-group-item">
-                                    <div class="row">
-                                        <div class="col-10 col-lg-11">
-                                            <span>SSS</span><br />
-                                            <span><i class="fa fa-file"></i>&nbsp;filename.docx, uploaded (date)</span>
+                                <div class="card-header"><%- lang.applicants.words.nav_documents %></div>
+                                <ul class="list-group list-group-flush documents">
+                                    <% for (var document in applicant_documents) { %>
+                                    <li class="list-group-item">
+                                        <div class="row">
+                                            <div class="col-12" onclick="window.open('/apx_docs/<%- applicant_documents[document].filename %>','_blank')">
+                                                <span><%- lang.applicants.words.doc_types[applicant_documents[document].doctype] %></span><br />
+                                                <span><i class="fa fa-file"></i>&nbsp;<%- languageProcessor.renderSentence(lang.applicants.sentences.filename_preview_with_time, {filename:applicant_documents[document].filename, relative_time:moment(applicant_documents[document].filename.split('-')[1], "x").fromNow()}) %></span>
+                                            </div>
+                                            <div class="col-12 invalidate_btn pt-1 mt-2" style="border-top: 1px solid whitesmoke;">
+                                                <i class="fa fa-trash"></i> <%- lang.applicants.words.document_invalidate_btn %>
+                                            </div>
                                         </div>
-                                        <div class="col-2 col-lg-1">
-                                            <i class="fa fa-2x fa-trash"></i>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="list-group-item">
-                                    <div class="row">
-                                        <div class="col-10 col-lg-11">
-                                            <span>Pag-Ibig</span><br />
-                                            <span><i class="fa fa-file"></i>&nbsp;filename.docx, uploaded (date)</span>
-                                        </div>
-                                        <div class="col-2 col-lg-1 text-middle">
-                                            <i class="fa fa-2x fa-trash"></i>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
+                                    </li>
+                                    <% } %>
+                                </ul>
+                            </div>
                         </div>
+                        <div class="col-12 pt-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <%- languageProcessor.renderSentence(lang.applicants.sentences.documentupload_invalidated_documents, {"sva-docs": [applicant_invalidate_documents_ctr, lang.applicants.words.documentupload_invalidateddocs[0], lang.applicants.words.documentupload_invalidateddocs[1] ]}) %><br />
+                                    <a href="#" class="navlink"><%- lang.applicants.sentences.documentupload_why_is_this_being_stored %></a>
+                                </div>
+                            </div>
                         </div>
                     </div>
-
                 </div>
                 <%- include ('applicant_right_side_nav.ejs') %>
                 </div>
@@ -77,16 +86,45 @@
     <script>
         $('.nav-documents').addClass("active")
 
-        $(".custom-file-input").on("change", function() {
-            var fileName = $(this).val().split("\\").pop();
-            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
-        });
+        $('.custom-file-input').on('change', function() {
+            var filename = $(this).val().split('\\').pop()
+            $(this).siblings('.custom-file-label')
+                .addClass('selected')
+                .html(filename)
+        })
+
+        function submitDocument() {
+            var submit = true
+            var doctype = $('#doctype').val()
+            var docfile = $('#docfile').val()
+            if (docfile === '') {
+                submit = false
+                $('#docfileWarning').addClass('d-block').removeClass('d-none')
+            } else {
+                $('#docfileWarning').removeClass('d-block').addClass('d-none')
+            }
+            if (doctype === '') {
+                submit = false
+                $('#doctypeWarning').addClass('d-block').removeClass('d-none')
+            } else {
+                $('#doctypeWarning').removeClass('d-block').addClass('d-none')
+            }
+            if (!submit) $('#showCard').addClass('d-block').removeClass('d-none')
+                else $('#showCard').removeClass('d-block').addClass('d-none')
+            return submit
+        }
+
+        $('.collapse').collapse('hide')
     </script>
     <style>
         .list-group.documents > .list-group-item:hover {
             background-color: deeppink;
             color: white;
             cursor: pointer;
+        }
+
+        .invalidate_btn:hover {
+            color: purple !important;
         }
     </style>
 </body>

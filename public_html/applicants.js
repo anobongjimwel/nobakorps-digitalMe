@@ -4,6 +4,7 @@ const mongo = require('mongodb').MongoClient
 const express = require('express')
 const securer = require('./securer')
 const session = require('express-session')
+const MongoStore = require('connect-mongo')(session);
 const serveIndex = require('serve-index')
 const logger = require('./logger')
 const app = express()
@@ -19,18 +20,29 @@ app.use(session({
     saveUninitialized: true,
     cookie: {
         maxAge: 1000 * 60 * 60 * 24 * 30 * 3 // 3 Months
-    }
+    },
+    store: new MongoStore({ url: 'mongodb://localhost:27017/digitalme' })
 }))
+
+
 
 module.exports = {
     apply: apply,
     hasDuplicates: hasDuplicates,
-    login: login
+    login: login,
+    saveDocument: saveDocument,
+    getValidDocuments: getValidDocuments,
+    getInvalidDocuments: getValidDocuments,
+    countInvalidDocuments: countInvalidDocuments,
+    addNewExperience: addNewExperience,
+    getExperiences: getExperiences,
+    saveCertificate: saveCertificate,
+    getCertificates: getCertificates,
 }
 
 // Async Functions
 
-async function apply(walletAddress, emailAddress, password, name, physicalAddress, nationality, salaryFlooringCurrency = "PHP", salaryFlooring = 0, salaryCeilingCurrency = "PHP", salaryCeiling = 0, exists = true, nameChanges = 0) {
+async function apply(walletAddress, emailAddress, password, name, physicalAddress, nationality, location, salaryFlooring = 0, salaryCeiling = 0, exists = true, nameChanges = 0) {
     return new Promise((resolve, reject) => {
         mongo.connect(mongourl, mongoopts, (err, con) => {
             if (err)
@@ -42,19 +54,22 @@ async function apply(walletAddress, emailAddress, password, name, physicalAddres
             var applicant = {
                 walletAddress: walletAddress,
                 emailAddress: emailAddress,
-                password: securer.hashpassword("1234"),
+                password: securer.hashpassword(password),
                 name: name,
                 nameChanges: nameChanges,
                 physicalAddress: physicalAddress,
                 nationality: nationality,
+                location: location,
                 exists: exists,
-                salaryFlooringCurrency: salaryFlooringCurrency,
                 salaryFlooring: salaryFlooring,
-                salaryCeilingCurrency: salaryCeilingCurrency,
                 salaryCeiling: salaryCeiling,
                 token: securer.tokenize("applicant", walletAddress),
                 resetPasscode: Math.floor(Math.random()*1000001),
-                views: 0
+                views: 0,
+                salaryFilterSwitch: true,
+                locationFilterSwitch: true,
+                locationFilter: location,
+                skillsFilterSwitch: true
             }
             var insertion = db.collection('applicants').insertOne(applicant, (err, result) => {
                 if (err !== null) {
@@ -67,6 +82,7 @@ async function apply(walletAddress, emailAddress, password, name, physicalAddres
                     return reject(err)
                 } else {
                     logger.logSuccess(walletAddress + " has been added as an applicant.")
+                    // APPLICANT INSERT IN BLOCKCHAIN
                     return resolve(true)
                 }
             })
@@ -79,7 +95,7 @@ async function hasDuplicates(walletAddress, emailAddress) {
         mongo.connect(mongourl, mongoopts, (err, con) => {
             if (err) reject(err)
             db = con.db('digitalme')
-            var query = { $or: [{ walletAddress: walletAddress}, {emailAddress: emailAddress }] }
+            var query = { $or: [{ walletAddress: walletAddress }, { emailAddress: emailAddress }] }
             db.collection("applicants").find(query).toArray(function(err, result) {
                 if (err != null) {
                     logger.logError("An error has occured in finding duplicates for ("+walletAddress+") and "+"("+emailAddress+")")
@@ -97,18 +113,196 @@ async function login(emailAddress, password) {
         mongo.connect(mongourl, mongoopts, (err, con) => {
             if (err) reject(err)
             db = con.db('digitalme')
-            var query = { $and: [{emailAddress: emailAddress}] }
+            var query = {emailAddress: emailAddress}
             db.collection("applicants").find(query).toArray(function(err, result) {
                 if (err != null) {
                     return reject(err)
                 } else {
                     if (result.length!=1) {
-
+                        return reject([])
                     } else {
-                        if (securer.confirmpassword(password, result[0].password)) resolve(true)
-                            resolve([]) 
+                        if (password != "" && securer.confirmpassword(password, result[0].password)) {
+                            delete result[0].password
+                            return resolve(result[0])
+                        } else {
+                            return reject([])
+                        }
                     }
-                    console.log(result[0])
+                    return resolve(result)
+                }
+            })
+        })
+    })
+}
+
+async function saveDocument(walletAddress, date, doctype, filename) {
+    return new Promise((resolve, reject) => {
+        mongo.connect(mongourl, mongoopts, (err, con) => {
+            if (err)
+            {
+                reject(err)
+            }
+            db = con.db('digitalme')
+            var document = {
+                id: walletAddress+"-"+doctype,
+                walletAddress: walletAddress,
+                doctype: doctype,
+                filename: filename,
+                uploadDate: date,
+                valid: true
+            }
+            var old_document = {
+                id: walletAddress + "-" + doctype + "-invalid",
+                valid: false
+            }
+            db.collection('applicants_documents').update({id: walletAddress + "-" + doctype }, {$set: old_document});
+            var insertion = db.collection('applicants_documents').update({id: walletAddress+"-"+doctype}, document, {upsert: true, safe: false}, (err, result) => {
+                if (err !== null) {
+                    return reject(err)
+                } else {
+                    return resolve(filename)
+                }
+            })
+        })
+    })
+}
+
+async function getValidDocuments(walletAddress) {
+    return new Promise((resolve, reject) => {
+        mongo.connect(mongourl, mongoopts, (err, con) => {
+            if (err) reject(err)
+            db = con.db('digitalme')
+            var query = {walletAddress: walletAddress, valid: true}
+            db.collection("applicants_documents").find(query).sort({uploadDate: -1}).toArray(function(err, result) {
+                if (err != null) {
+                    return reject(err)
+                } else {
+                    return resolve(result)
+                }
+            })
+        })
+    })
+}
+
+async function getInvalidDocuments(walletAddress) {
+    return new Promise((resolve, reject) => {
+        mongo.connect(mongourl, mongoopts, (err, con) => {
+            if (err) reject(err)
+            db = con.db('digitalme')
+            var query = {walletAddress: walletAddress, valid: true}
+            db.collection("applicants_documents").find(query).toArray(function(err, result) {
+                if (err != null) {
+                    return reject(err)
+                } else {
+                    return resolve(result)
+                }
+            })
+        })
+    })
+}
+
+async function countInvalidDocuments(walletAddress) {
+    return new Promise((resolve, reject) => {
+        mongo.connect(mongourl, mongoopts, (err, con) => {
+            if (err) reject(err)
+            db = con.db('digitalme')
+            var query = {walletAddress: walletAddress, valid: true}
+            db.collection("applicants_documents").find(query).count(function(err, result) {
+                if (err != null) {
+                    return reject(err)
+                } else {
+                    return resolve(result)
+                }
+            })
+        })
+    })
+}
+
+async function addNewExperience(walletAddress, date, companyName, position, startDate, endDate, country, monthlySalary, description) {
+    console.log('asdadasd')
+    return new Promise((resolve, reject) => {
+        mongo.connect(mongourl, mongoopts, (err, con) => {
+            if (err)
+            {
+                reject(err)
+            }
+            db = con.db('digitalme')
+            var document = {
+                id: walletAddress+"-"+date,
+                walletAddress: walletAddress,
+                companyName: companyName,
+                position: position,
+                startDate: (+new Date(startDate)).toString(),
+                endDate: (+new Date(endDate)).toString(),
+                country: country,
+                monthlySalary: monthlySalary,
+                description: description
+            }
+            var insertion = db.collection('applicants_experiences').insertOne(document, (err, result) => {
+                if (err !== null) {
+                    return reject(err)
+                } else {
+                    return resolve(result)
+                }
+            })
+        })
+    })
+}
+
+async function getExperiences(walletAddress) {
+    return new Promise((resolve, reject) => {
+        mongo.connect(mongourl, mongoopts, (err, con) => {
+            if (err) reject(err)
+            db = con.db('digitalme')
+            var query = {walletAddress: walletAddress}
+            db.collection("applicants_experiences").find(query).sort({uploadDate: -1}).toArray(function(err, result) {
+                if (err != null) {
+                    return reject(err)
+                } else {
+                    return resolve(result)
+                }
+            })
+        })
+    })
+}
+
+async function saveCertificate(walletAddress, certname, filename) {
+    return new Promise((resolve, reject) => {
+        mongo.connect(mongourl, mongoopts, (err, con) => {
+            if (err)
+            {
+                reject(err)
+            }
+            db = con.db('digitalme')
+            var document = {
+                id: walletAddress+"-"+filename.split('-')[1],
+                walletAddress: walletAddress,
+                certname: certname,
+                filename: filename,
+                uploadDate: filename.split('-')[1],
+                valid: true
+            }
+            var insertion = db.collection('applicants_certificates').insertOne(document, (err, result) => {
+                if (err !== null) {
+                    return reject(err)
+                } else {
+                    return resolve(filename)
+                }
+            })
+        })
+    })
+}
+
+async function getCertificates(walletAddress) {
+    return new Promise((resolve, reject) => {
+        mongo.connect(mongourl, mongoopts, (err, con) => {
+            if (err) reject(err)
+            db = con.db('digitalme')
+            var query = {walletAddress: walletAddress}
+            db.collection("applicants_certificates").find(query).sort({uploadDate: -1}).toArray(function(err, result) {
+                if (err != null) {
+                    return reject(err)
+                } else {
                     return resolve(result)
                 }
             })

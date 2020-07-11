@@ -2,20 +2,43 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="59dd8115-ff8c-485c-87dd-20f1f6dc20fa" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/css/bootstrap.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/views/applicant_login.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public_html/css/bootstrap.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public_html/img/user/employer-banner.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public_html/languageProcessor.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public_html/testtranslate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public_html/views/applicant_certificates.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public_html/views/applicant_experiences.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public_html/views/applicant_nav.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public_html/views/applicant_register.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public_html/views/applicant_skills.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public_html/views/employer_footer.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public_html/views/employer_index.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public_html/views/employer_left_side_nav.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layouts/Backup_of_DigitalMe.cdr" beforeDir="false" afterPath="$PROJECT_DIR$/layouts/Backup_of_DigitalMe.cdr" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layouts/DigitalMe.cdr" beforeDir="false" afterPath="$PROJECT_DIR$/layouts/DigitalMe.cdr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/contracts/Applicants.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/contracts/Applicants.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/contracts/Migrations.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/contracts/Migrations.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contracts/Applicants.sol" beforeDir="false" afterPath="$PROJECT_DIR$/contracts/Applicants.sol" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/applicants.js" beforeDir="false" afterPath="$PROJECT_DIR$/public_html/applicants.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/css/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/public_html/css/bootstrap.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public_html/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/public_html/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/img/logo/zh-logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/public_html/img/logo/zh-logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/img/user/banner.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public_html/img/user/applicant-banner.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public_html/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/public_html/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public_html/js/lang/en-US.json" beforeDir="false" afterPath="$PROJECT_DIR$/public_html/js/lang/en-US.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public_html/js/lang/ja-JA.json" beforeDir="false" afterPath="$PROJECT_DIR$/public_html/js/lang/ja-JA.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/js/lang/languages.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/public_html/js/lang/tl-PH.json" beforeDir="false" afterPath="$PROJECT_DIR$/public_html/js/lang/tl-PH.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/busboy/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/public_html/node_modules/busboy/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/public_html/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/public_html/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public_html/views/applicant_documents.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/public_html/views/applicant_documents.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public_html/views/applicant_right_side_nav.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/public_html/views/applicant_right_side_nav.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/views/applicant_footer.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/public_html/views/applicant_footer.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/views/applicant_index.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/public_html/views/applicant_index.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/views/applicant_left_side_nav.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/public_html/views/applicant_left_side_nav.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/views/applicant_login.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/public_html/views/applicant_login.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/views/applicant_settings.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/public_html/views/applicant_settings.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public_html/views/header.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/public_html/views/header.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/views/nav.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/public_html/views/employer_nav.ejs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,11 +49,13 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/public_html/js/lang/en-US.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/public_html/logger.js" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/public_html/js/lang/languages.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/public_html/applicants.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/public_html/securer.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/public_html/index.js" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/public_html/views/applicant_register.ejs" root0="SKIP_INSPECTION" root1="SKIP_INSPECTION" root2="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/public_html/languageProcessor.js" root0="SKIP_INSPECTION" />
   </component>
   <component name="JsFlowSettings">
     <service-enabled>true</service-enabled>
@@ -49,17 +74,21 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="CSS" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/public_html/views" />
     <property name="nodejs.mocha.mocha_node_package_dir" value="" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2019.3.1\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\digitalMe\public_html\views" />
+      <recent name="C:\digitalMe\public_html\css" />
       <recent name="C:\digitalMe\public_html\js\lang" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\digitalMe\public_html\img\user" />
       <recent name="C:\digitalMe\public_html" />
     </key>
   </component>
@@ -154,7 +183,36 @@
       <workItem from="1593707611282" duration="4436000" />
       <workItem from="1593734086082" duration="1960000" />
       <workItem from="1593736064613" duration="75000" />
-      <workItem from="1593736151404" duration="3209000" />
+      <workItem from="1593736151404" duration="22350000" />
+      <workItem from="1593768903553" duration="5798000" />
+      <workItem from="1593783706966" duration="900000" />
+      <workItem from="1593792412247" duration="11145000" />
+      <workItem from="1593846275757" duration="6929000" />
+      <workItem from="1593882076295" duration="11120000" />
+      <workItem from="1593936743365" duration="772000" />
+      <workItem from="1593937674108" duration="2675000" />
+      <workItem from="1593945547556" duration="1809000" />
+      <workItem from="1593947411867" duration="179000" />
+      <workItem from="1593947603759" duration="83000" />
+      <workItem from="1593947697290" duration="1397000" />
+      <workItem from="1593978593158" duration="2881000" />
+      <workItem from="1593983680932" duration="1778000" />
+      <workItem from="1593991724386" duration="9470000" />
+      <workItem from="1594005273914" duration="41647000" />
+      <workItem from="1594086517300" duration="8114000" />
+      <workItem from="1594122091505" duration="1131000" />
+      <workItem from="1594131788868" duration="287000" />
+      <workItem from="1594144166748" duration="8000" />
+      <workItem from="1594145172541" duration="6297000" />
+      <workItem from="1594172920612" duration="4505000" />
+      <workItem from="1594182140683" duration="7555000" />
+      <workItem from="1594204010135" duration="7076000" />
+      <workItem from="1594258960666" duration="711000" />
+      <workItem from="1594286502926" duration="700000" />
+      <workItem from="1594297655246" duration="33819000" />
+      <workItem from="1594378249856" duration="4054000" />
+      <workItem from="1594401713092" duration="6689000" />
+      <workItem from="1594440168372" duration="351000" />
     </task>
     <servers />
   </component>
@@ -162,6 +220,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="2474" y="138" key="#Inspections" timestamp="1594322145588">
+      <screen x="1920" y="-50" width="1920" height="1050" />
+    </state>
+    <state x="2474" y="138" key="#Inspections/0.0.1920.1050/1920.-50.1920.1050@1920.-50.1920.1050" timestamp="1594322145588" />
     <state x="2334" y="134" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1593086365660">
       <screen x="1920" y="-50" width="1920" height="1050" />
     </state>
@@ -242,15 +304,27 @@
       <screen x="1920" y="-50" width="1920" height="1050" />
     </state>
     <state width="1570" height="269" key="GridCell.Tab.3.right/0.0.1920.1050/1920.-50.1920.1050@1920.-50.1920.1050" timestamp="1593063131991" />
-    <state x="463" y="171" key="SettingsEditor" timestamp="1593736139110">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state x="463" y="171" key="SettingsEditor/0.0.1920.1050/1920.-50.1920.1050@0.0.1920.1050" timestamp="1593736139110" />
-    <state x="2383" y="121" key="SettingsEditor/0.0.1920.1050/1920.-50.1920.1050@1920.-50.1920.1050" timestamp="1593736048046" />
-    <state x="2525" y="65" width="710" height="819" key="find.popup" timestamp="1593709858458">
+    <state x="2743" y="202" key="RollbackChangesDialog" timestamp="1593747674961">
       <screen x="1920" y="-50" width="1920" height="1050" />
     </state>
-    <state x="2525" y="65" width="710" height="819" key="find.popup/0.0.1920.1050/1920.-50.1920.1050@1920.-50.1920.1050" timestamp="1593709858458" />
+    <state x="2743" y="202" key="RollbackChangesDialog/0.0.1920.1050/1920.-50.1920.1050@1920.-50.1920.1050" timestamp="1593747674961" />
+    <state x="2383" y="121" key="SettingsEditor" timestamp="1594175416319">
+      <screen x="1920" y="-50" width="1920" height="1050" />
+    </state>
+    <state x="463" y="171" key="SettingsEditor/0.0.1920.1050/1920.-50.1920.1050@0.0.1920.1050" timestamp="1593736139110" />
+    <state x="2383" y="121" key="SettingsEditor/0.0.1920.1050/1920.-50.1920.1050@1920.-50.1920.1050" timestamp="1594175416319" />
+    <state x="2592" y="148" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1594014377445">
+      <screen x="1920" y="-50" width="1920" height="1050" />
+    </state>
+    <state x="2592" y="148" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1050/1920.-50.1920.1050@1920.-50.1920.1050" timestamp="1594014377445" />
+    <state x="2693" y="396" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1593888709471">
+      <screen x="1920" y="-50" width="1920" height="1050" />
+    </state>
+    <state x="2693" y="396" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1050/1920.-50.1920.1050@1920.-50.1920.1050" timestamp="1593888709471" />
+    <state x="2525" y="65" width="710" height="819" key="find.popup" timestamp="1594357213001">
+      <screen x="1920" y="-50" width="1920" height="1050" />
+    </state>
+    <state x="2525" y="65" width="710" height="819" key="find.popup/0.0.1920.1050/1920.-50.1920.1050@1920.-50.1920.1050" timestamp="1594357213001" />
     <state x="2596" y="287" key="jetbrains.nodejs.interpreters-dialog" timestamp="1593086327909">
       <screen x="1920" y="-50" width="1920" height="1050" />
     </state>
@@ -259,14 +333,13 @@
       <screen x="1920" y="-50" width="1920" height="1050" />
     </state>
     <state x="2574" y="333" width="661" height="281" key="org.intellij.images.editor.actions.BackgroundImageDialog/0.0.1920.1050/1920.-50.1920.1050@1920.-50.1920.1050" timestamp="1593058931499" />
-    <state x="2538" y="219" key="run.anything.popup" timestamp="1593736890778">
+    <state x="2538" y="219" key="run.anything.popup" timestamp="1594401804371">
       <screen x="1920" y="-50" width="1920" height="1050" />
     </state>
-    <state x="2538" y="219" key="run.anything.popup/0.0.1920.1050/1920.-50.1920.1050@1920.-50.1920.1050" timestamp="1593736890778" />
-    <state x="2543" y="177" width="672" height="678" key="search.everywhere.popup" timestamp="1593709614930">
+    <state x="2538" y="219" key="run.anything.popup/0.0.1920.1050/1920.-50.1920.1050@1920.-50.1920.1050" timestamp="1594401804371" />
+    <state x="2543" y="177" width="672" height="678" key="search.everywhere.popup" timestamp="1594346881405">
       <screen x="1920" y="-50" width="1920" height="1050" />
     </state>
-    <state x="2543" y="177" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050/1920.-50.1920.1050@1920.-50.1920.1050" timestamp="1593709614930" />
-    <state x="2543" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050/1920.0.1920.1050@1920.0.1920.1050" timestamp="1585098305650" />
+    <state x="2543" y="177" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050/1920.-50.1920.1050@1920.-50.1920.1050" timestamp="1594346881405" />
   </component>
 </project>
