@@ -4,6 +4,7 @@ const mongo = require('mongodb').MongoClient
 const express = require('express')
 const securer = require('./securer')
 const session = require('express-session')
+const serveindex = require('serve-index')
 const MongoStore = require('connect-mongo')(session);
 const logger = require('./logger')
 const app = express()
@@ -125,5 +126,6 @@ async function login(emailAddress, password) {
             })
         })
     })
+}
 }
 }

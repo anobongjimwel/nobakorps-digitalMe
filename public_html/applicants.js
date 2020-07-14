@@ -5,6 +5,7 @@ const express = require('express')
 const securer = require('./securer')
 const session = require('express-session')
 const MongoStore = require('connect-mongo')(session);
+const serveindex = require('serve-index')
 const logger = require('./logger')
 const app = express()
 
