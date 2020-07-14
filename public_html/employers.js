@@ -127,5 +127,3 @@ async function login(emailAddress, password) {
         })
     })
 }
-}
-}
