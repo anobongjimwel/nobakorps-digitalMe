@@ -69,11 +69,18 @@ app.use(session({
 	})
 }))
 
-app.get('/applicant', (req, res) => {
+app.get('/applicant', async (req, res) => {
+	moment.locale(req.session.lang)
+	res.locals.moment = moment
 	if (req.session.lang === undefined) req.session.lang = 'en-US'
 	res.locals.lang = lang[req.session.lang]
 	res.locals.languageProcessor = languageProcessor
 	res.locals.auth_applicant = req.session.auth_applicant
+	await applicants.getActiveAnnouncements(req.session.lang)
+		.then(result => {
+			res.locals.activeAnnouncements = result
+		})
+		.catch(err => {})
 	if (req.session.auth_applicant === undefined || req.session.auth_applicant == "") res.render('applicant_login')
 		else res.render('applicant_index')
 })
@@ -84,7 +91,7 @@ app.get('/applicant/login', (req, res) => {
 	res.locals.languageProcessor = languageProcessor
 	res.locals.auth_applicant = req.session.auth_applicant
 	if (req.session.auth_applicant === undefined || req.session.auth_applicant == "") res.render('applicant_login')
-	else res.render('applicant_index')
+	else res.redirect('/applicant')
 })
 
 app.get('/applicant/register', (req, res) => {
@@ -117,7 +124,7 @@ app.get('/applicant/documents', async (req, res) => {
 	else res.render('applicant_documents')
 })
 
-app.post('/applicant/document/upload', applicant_docs_upload.single('file'), (req, res) => {
+app.post('/applicant/document-upload', applicant_docs_upload.single('file'), (req, res) => {
 	app.use(fileUpload({
 		useTempFiles: true,
 		tempFileDir: '/tmp',
@@ -201,7 +208,7 @@ app.get('/applicant/experiences', async (req, res) => {
 	else res.render('applicant_experiences')
 })
 
-app.post('/applicant/certificate/upload', applicant_certs_upload.single('file'), (req, res) => {
+app.post('/applicant/certificate-upload', applicant_certs_upload.single('file'), (req, res) => {
 	app.use(fileUpload({
 		useTempFiles: true,
 		tempFileDir: '/tmp',
@@ -254,8 +261,84 @@ app.get('/applicant/skills', async (req, res) => {
 	res.locals.lang = lang[req.session.lang]
 	res.locals.languageProcessor = languageProcessor
 	res.locals.auth_applicant = req.session.auth_applicant
+	await applicants.getSkills(req.session.auth_applicant.walletAddress)
+		.then(result => {
+			res.locals.applicant_skills = result
+		})
+		.catch(err => {})
 	if (req.session.auth_applicant === undefined || req.session.auth_applicant == "") res.render('applicant_login')
 	else res.render('applicant_skills')
+})
+
+
+app.post('/applicant/skill-add', (req, res) => {
+	var applicant = req.session.auth_applicant
+	var skill = req.body.skill
+	if (
+		(applicant !== "" || applicant != null)  &&
+		(skill !== "" || skill != null)
+	) {
+		applicants.addSkill(
+			applicant.walletAddress,
+			skill
+		).then((res)=>{
+			res.redirect('/applicant/skills')
+		})
+			.catch((err)=> {
+				res.redirect('/applicant/skills')
+			})
+	} else {
+		res.redirect('/applicant/skills')
+	}
+})
+
+app.get('/applicant/language-proficiencies', async (req, res) => {
+	moment.locale(req.session.lang)
+	res.locals.moment = moment
+	if (req.session.lang === undefined) req.session.lang = 'en-US'
+	res.locals.lang = lang[req.session.lang]
+	res.locals.languageProcessor = languageProcessor
+	res.locals.auth_applicant = req.session.auth_applicant
+	await applicants.getLanguageProficiencies(req.session.auth_applicant.walletAddress)
+		.then(result => {
+			res.locals.applicant_language_proficiencies = result
+		})
+		.catch(err => {})
+	if (req.session.auth_applicant === undefined || req.session.auth_applicant == "") res.render('applicant_login')
+	else res.render('applicant_language_proficiencies')
+})
+
+app.post('/applicant/language-proficiency-add', (req, res) => {
+	var applicant = req.session.auth_applicant
+	var language = req.body.language
+	var level = req.body.level
+	if (
+		(applicant !== "" || applicant != null)  &&
+		(language !== "" || language != null) &&
+		(!Number.isNaN(level) && level != 0)
+	) {
+		applicants.addLanguageProficiency(
+			applicant.walletAddress,
+			language,
+			level
+		).then((res)=>{
+			res.redirect('/applicant/language-proficiencies')
+		})
+			.catch((err)=> {
+				res.redirect('/applicant/language-proficiencies')
+			})
+	} else {
+		res.redirect('/applicant/language-proficiencies')
+	}
+})
+
+app.get('/applicant/statistics', (req, res) => {
+	if (req.session.lang === undefined) req.session.lang = 'en-US'
+	res.locals.lang = lang[req.session.lang]
+	res.locals.languageProcessor = languageProcessor
+	res.locals.auth_applicant = req.session.auth_applicant
+	if (req.session.auth_applicant === undefined || req.session.auth_applicant == "") res.render('applicant_login')
+	else res.render('applicant_statistics')
 })
 
 
@@ -283,12 +366,13 @@ app.post('/ajx/add-applicant', (req, res) => {
 	var physicalAddress = req.body.physicalAddress
 	var location = req.body.location
 	var nationality = req.body.nationality
+	var contact_number = req.body.contact_number
 	var salaryFlooring = 0.00
 	var salaryCeiling = 0.00
 	if (
 		true
 	) {
-		applicants.apply(walletAddress, emailAddress, password, name, physicalAddress, nationality, location, salaryFlooring, salaryCeiling, true, 0)
+		applicants.apply(walletAddress, emailAddress, password, contact_number, name, physicalAddress, nationality, location, salaryFlooring, salaryCeiling, true, 0)
 			.then(result => {
 				res.json({status: "ok", date: logger.genLongTime()})
 			})
@@ -355,12 +439,26 @@ app.get('/applicant/logout', (req, res) => {
 	res.redirect('/applicant')
 })
 
-app.get('/employer', (req, res) => {
+app.get('/employer', async (req, res) => {
+	moment.locale(req.session.lang)
+	res.locals.moment = moment
 	if (req.session.lang === undefined) req.session.lang = 'en-US'
 	res.locals.lang = lang[req.session.lang]
 	res.locals.languageProcessor = languageProcessor
 	res.locals.auth_employer = req.session.auth_employer
+	await applicants.getActiveAnnouncements(req.session.lang)
+		.then(result => {
+			res.locals.activeAnnouncements = result
+		})
+		.catch(err => {})
 	res.render('employer_index')
+})
+
+app.get('/employer/login', (req, res) => {
+	if (req.session.lang === undefined) req.session.lang = 'en-US'
+	res.locals.lang = lang[req.session.lang]
+	res.locals.languageProcessor = languageProcessor
+	res.render('employer_login')
 })
 
 app.listen(port, () => console.log('DigitalMe now actively listening at port '+port))

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="<%- lang.codes.short_code %>">
 <head>
-    <title><%- lang.applicants.words.site_name+" - "+lang.applicants.words.nav_home %></title>
+    <title><%- lang.employers.words.site_name+" - "+lang.applicants.words.nav_home %></title>
     <%- include ('header.ejs') %>
 </head>
 <body>
@@ -17,28 +17,35 @@
                                 <div class="card-header">
                                     Announcements
                                 </div>
-                                <div class="card-body">
-                                    No New Announcements
-                                </div>
+                                <% if (activeAnnouncements.length == 0) { %>
+                                    <div class="card-body">
+                                        <%- lang.applicants.sentences.no_new_announcements %>
+                                    </div>
+                                <% } else { %>
+                                    <ul class="list-group list-group-flush">
+                                        <% for (var activeAnnouncement in activeAnnouncements) { %>
+                                            <li class="list-group-item">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <b style="font-size: 1.5em"><%- activeAnnouncements[activeAnnouncement].title %></b><br />
+                                                        <span><%- languageProcessor.renderSentence(lang.applicants.sentences.announcements_posted_time, {relative_time: moment(activeAnnouncements[activeAnnouncement].date,'x').fromNow() }) %></span><br /><br />
+                                                        <span style="text-align: justify" class="d-block"><%- activeAnnouncements[activeAnnouncement].message %></span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        <% } %>
+                                    </ul>
+                                <% } %>
                             </div>
                         </div>
-                        <div class="col-12 pt-4">
-                            <div class="card">
-                                <div class="card-header">
-                                    Job Postings
-                                </div>
-                                <div class="card-body">
-                                    No New Postings
-                                </div>
-                            </div>
-                        </div>
+                        <%- include ('employer_bottom_side_nav') %>
                     </div>
                 </div>
             </div>
         </div>
     <div class="pt-5"></div>
     </div>
-    <%- include ('applicant_footer') %>
+    <%- include ('employer_footer') %>
     <script>
         $('.nav-home1').addClass("active")
         $('.nav-home2').addClass("active")

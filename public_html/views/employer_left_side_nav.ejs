@@ -15,30 +15,34 @@
             <br />
             <h6 class="card-title"><%- lang.applicants.words.nav_navigation %></h6>
             <p class="card-description">
-                <span class="d-inline-block navlink nav-home1"><%- lang.applicants.words.nav_home %></span><br />
-                <span class="d-inline-block navlink nav-profile"><%- lang.applicants.words.nav_profile %></span><br />
-                <span class="d-inline-block navlink nav-skills"><%- lang.applicants.words.nav_skills %></span><br />
-                <span class="d-inline-block navlink nav-documents"><%- lang.applicants.words.nav_documents %></span><br />
-                <span class="d-inline-block navlink nav-experiences"><%- lang.applicants.words.nav_experiences %></span><br />
-                <span class="d-inline-block navlink nav-statistics"><%- lang.applicants.words.nav_statistics %></span><br />
+                <span class="d-inline-block navlink nav-home1"><%- lang.employers.words.nav_home %></span><br />
+                <span class="d-inline-block navlink nav-profile"><%- lang.employers.words.nav_profile %></span><br />
+                <span class="d-inline-block navlink nav-documents"><%- lang.employers.words.nav_documents %></span><br />
+                <span class="d-inline-block navlink nav-postings"><%- lang.employers.words.nav_postings %></span><br />
+                <span class="d-inline-block navlink nav-statistics"><%- lang.employers.words.nav_statistics %></span><br />
+                <span class="d-inline-block navlink nav-help"><%- lang.employers.words.nav_help %></span><br />
+            </p>
+            <br />
+            <h6 class="card-title navlink"><%- lang.employers.words.nav_settings %></h6>
+            <p class="card-description">
+                <span class="d-inline-block navlink"><%- lang.employers.words.nav_suggestion_filters %></span><br />
+                <span class="d-inline-block navlink"><%- lang.employers.words.nav_language_settings %></span><br />
+                <span class="d-inline-block navlink"><%- lang.employers.words.nav_account_settings %></span><br />
             </p>
         </div>
     </div>
-    <%
-    var adCount = 0
-    for (var adc in lang.ads) adCount+=1
-    if (adc != 0) {
-        var ad = lang.ads[Math.floor(Math.random() * adc)]
-    %>
-    <div class="card mt-4 d-lg-block d-none">
-        <img class="card-img-top" src="/img/ads/<%- ad.img %>" alt="Ad">
+    <div class="card mt-4">
         <div class="card-body">
-            <p class="card-description" style="overflow-x: hidden">
-                <span style="font-size: 0.75em"><%- lang.applicants.words.nav_sponsored %></span><br />
-                <span style="font-weight: 600; line-height: 1; white-space: nowrap; font-size: 1.05em"><%- ad.title %></span><br />
-                <span style="font-size: 1em"><%- ad.description %></span>
+            <h6 class="card-title"><%- lang.employers.words.nav_digitalmelinks %></h6>
+            <p class="card-description">
+                <span class="d-inline-block navlink nav-home2" onclick="location.href='/applicant'"><%- lang.employers.words.nav_home %></span><br />
+                <span class="d-inline-block navlink nav-announcements"><%- lang.employers.words.nav_announcements %></span><br />
+                <span class="d-inline-block navlink nav-privacypolicy"><%- lang.employers.words.nav_privacy_policy %></span><br />
+                <span class="d-inline-block navlink nav-terms"><%- lang.employers.words.nav_terms_and_agreements %></span><br />
+                <span class="d-inline-block navlink nav-abtDigitalMe"><%- lang.employers.words.nav_about_digitalme %></span><br />
+                <span class="d-inline-block navlink nav-abtProgmrs"><%- lang.employers.words.nav_about_the_programmers %></span>
             </p>
         </div>
     </div>
-    <% } %>
+    <%- include ('employer_ad_placement') %>
 </div>

@@ -2,10 +2,150 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="59dd8115-ff8c-485c-87dd-20f1f6dc20fa" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public_html/employers.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public_html/views/applicant_language_proficiencies.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public_html/views/applicant_statistics.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public_html/views/employee_login.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public_html/views/employer_ad_placement.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public_html/views/employer_bottom_side_nav.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public_html/views/employer_login.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layouts/Backup_of_DigitalMe.cdr" beforeDir="false" afterPath="$PROJECT_DIR$/layouts/Backup_of_DigitalMe.cdr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layouts/DigitalMe.cdr" beforeDir="false" afterPath="$PROJECT_DIR$/layouts/DigitalMe.cdr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/applicants.js" beforeDir="false" afterPath="$PROJECT_DIR$/public_html/applicants.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/public_html/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public_html/js/lang/en-US.json" beforeDir="false" afterPath="$PROJECT_DIR$/public_html/js/lang/en-US.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public_html/js/lang/ja-JA.json" beforeDir="false" afterPath="$PROJECT_DIR$/public_html/js/lang/ja-JA.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/js/lang/tl-PH.json" beforeDir="false" afterPath="$PROJECT_DIR$/public_html/js/lang/tl-PH.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/batch/.npmignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/batch/History.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/batch/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/batch/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/batch/Readme.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/batch/component.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/batch/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/batch/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/HISTORY.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/node_modules/http-errors/HISTORY.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/node_modules/http-errors/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/node_modules/http-errors/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/node_modules/http-errors/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/node_modules/http-errors/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/node_modules/setprototypeof/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/node_modules/setprototypeof/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/node_modules/setprototypeof/index.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/node_modules/setprototypeof/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/node_modules/setprototypeof/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/directory.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/application_xp.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/application_xp_terminal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/box.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/cd.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/controller.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/drive.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/film.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/folder.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/font.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/image.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/map.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_add.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_attach.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_code.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_copy.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_delete.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_edit.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_error.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_excel.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_find.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_gear.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_go.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_green.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_key.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_lightning.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_link.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_paintbrush.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_paste.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_red.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_refresh.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_save.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_white_acrobat.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_white_actionscript.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_white_add.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_white_c.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_white_camera.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_white_cd.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_white_code.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_white_code_red.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_white_coldfusion.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_white_compressed.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_white_copy.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_white_cplusplus.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_white_csharp.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_white_cup.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_white_database.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_white_delete.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_white_dvd.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_white_edit.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_white_error.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_white_excel.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_white_find.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_white_flash.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_white_freehand.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_white_gear.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_white_get.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_white_go.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_white_h.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_white_horizontal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_white_key.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_white_lightning.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_white_link.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_white_magnify.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_white_medal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_white_office.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_white_paint.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_white_paintbrush.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_white_paste.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_white_php.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_white_picture.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_white_powerpoint.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_white_put.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_white_ruby.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_white_stack.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_white_star.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_white_swoosh.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_white_text.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_white_text_width.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_white_tux.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_white_vector.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_white_visualstudio.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_white_width.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_white_word.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_white_world.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_white_wrench.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_white_zip.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_word.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/icons/page_world.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/node_modules/serve-index/public/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/public_html/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/public_html/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/views/applicant_certificates.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/public_html/views/applicant_certificates.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/views/applicant_documents.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/public_html/views/applicant_documents.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/views/applicant_index.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/public_html/views/applicant_index.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/views/applicant_left_side_nav.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/public_html/views/applicant_left_side_nav.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/views/applicant_nav.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/public_html/views/applicant_nav.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/views/applicant_register.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/public_html/views/applicant_register.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/views/applicant_right_side_nav.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/public_html/views/applicant_right_side_nav.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/views/applicant_skills.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/public_html/views/applicant_skills.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/views/employer_footer.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/public_html/views/employer_footer.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/views/employer_index.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/public_html/views/employer_index.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/views/employer_left_side_nav.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/public_html/views/employer_left_side_nav.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/views/employer_nav.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/public_html/views/employer_nav.ejs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +160,7 @@
     <setting file="file://$PROJECT_DIR$/public_html/logger.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/public_html/applicants.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/public_html/securer.js" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/public_html/employers.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/public_html/index.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/public_html/views/applicant_register.ejs" root0="SKIP_INSPECTION" root1="SKIP_INSPECTION" root2="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/public_html/languageProcessor.js" root0="SKIP_INSPECTION" />
@@ -42,14 +183,15 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="CSS" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public_html/views" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public_html" />
     <property name="nodejs.mocha.mocha_node_package_dir" value="" />
     <property name="nodejs_interpreter_path" value="node" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Color Scheme Font" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2019.3.1\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\digitalMe\public_html" />
       <recent name="C:\digitalMe\public_html\views" />
       <recent name="C:\digitalMe\public_html\css" />
       <recent name="C:\digitalMe\public_html\js\lang" />
@@ -179,7 +321,14 @@
       <workItem from="1594297655246" duration="33819000" />
       <workItem from="1594378249856" duration="4054000" />
       <workItem from="1594401713092" duration="6689000" />
-      <workItem from="1594440168372" duration="1262000" />
+      <workItem from="1594440168372" duration="6874000" />
+      <workItem from="1594452667768" duration="3081000" />
+      <workItem from="1594487464231" duration="600000" />
+      <workItem from="1594493843174" duration="6149000" />
+      <workItem from="1594501457114" duration="9688000" />
+      <workItem from="1594632699342" duration="4919000" />
+      <workItem from="1594659702921" duration="6359000" />
+      <workItem from="1594689557342" duration="9649000" />
     </task>
     <servers />
   </component>
@@ -275,11 +424,11 @@
       <screen x="1920" y="-50" width="1920" height="1050" />
     </state>
     <state x="2743" y="202" key="RollbackChangesDialog/0.0.1920.1050/1920.-50.1920.1050@1920.-50.1920.1050" timestamp="1593747674961" />
-    <state x="2383" y="121" key="SettingsEditor" timestamp="1594175416319">
-      <screen x="1920" y="-50" width="1920" height="1050" />
+    <state x="701" y="147" key="SettingsEditor" timestamp="1594501525377">
+      <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="463" y="171" key="SettingsEditor/0.0.1920.1050/1920.-50.1920.1050@0.0.1920.1050" timestamp="1593736139110" />
-    <state x="2383" y="121" key="SettingsEditor/0.0.1920.1050/1920.-50.1920.1050@1920.-50.1920.1050" timestamp="1594175416319" />
+    <state x="701" y="147" key="SettingsEditor/0.0.1920.1050/1920.-50.1920.1050@1920.-50.1920.1050" timestamp="1594501525377" />
     <state x="2592" y="148" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1594014377445">
       <screen x="1920" y="-50" width="1920" height="1050" />
     </state>
@@ -288,10 +437,10 @@
       <screen x="1920" y="-50" width="1920" height="1050" />
     </state>
     <state x="2693" y="396" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1050/1920.-50.1920.1050@1920.-50.1920.1050" timestamp="1593888709471" />
-    <state x="2525" y="65" width="710" height="819" key="find.popup" timestamp="1594357213001">
+    <state x="2525" y="65" width="710" height="819" key="find.popup" timestamp="1594662317164">
       <screen x="1920" y="-50" width="1920" height="1050" />
     </state>
-    <state x="2525" y="65" width="710" height="819" key="find.popup/0.0.1920.1050/1920.-50.1920.1050@1920.-50.1920.1050" timestamp="1594357213001" />
+    <state x="2525" y="65" width="710" height="819" key="find.popup/0.0.1920.1050/1920.-50.1920.1050@1920.-50.1920.1050" timestamp="1594662317164" />
     <state x="2596" y="287" key="jetbrains.nodejs.interpreters-dialog" timestamp="1593086327909">
       <screen x="1920" y="-50" width="1920" height="1050" />
     </state>

@@ -17,9 +17,25 @@
                                 <div class="card-header">
                                     <%- lang.applicants.words.nav_announcements %>
                                 </div>
-                                <div class="card-body">
-                                    <%- lang.applicants.sentences.no_new_announcements %>
-                                </div>
+                                <% if (activeAnnouncements.length == 0) { %>
+                                    <div class="card-body">
+                                        <%- lang.applicants.sentences.no_new_announcements %>
+                                    </div>
+                                <% } else { %>
+                                <ul class="list-group list-group-flush">
+                                    <% for (var activeAnnouncement in activeAnnouncements) { %>
+                                    <li class="list-group-item">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <b style="font-size: 1.5em"><%- activeAnnouncements[activeAnnouncement].title %></b><br />
+                                                <span><%- languageProcessor.renderSentence(lang.applicants.sentences.announcements_posted_time, {relative_time: moment(activeAnnouncements[activeAnnouncement].date,'x').fromNow() }) %></span><br /><br />
+                                                <span style="text-align: justify" class="d-block"><%- activeAnnouncements[activeAnnouncement].message %></span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <% } %>
+                                </ul>
+                                <% } %>
                             </div>
                         </div>
                         <div class="col-12 pt-4">

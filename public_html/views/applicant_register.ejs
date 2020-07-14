@@ -28,13 +28,14 @@
                                                     <span v-if="validation_email == 'empty'"><br /><span class="badge badge-danger badge-pill">&nbsp;</span> <%- lang.applicants.sentences.register_double_check_email_empty %></span>
                                                     <span v-if="validation_email == 'invalid'"><br /><span class="badge badge-danger badge-pill">&nbsp;</span> <%- lang.applicants.sentences.register_double_check_email_invalid %></span>
                                                     <span v-if="validation_duplicate == true"><br /><span class="badge badge-danger badge-pill">&nbsp;</span> <%- lang.applicants.sentences.register_duplicate %></span>
-                                                    <span v-if="validation_physical_address == 'empty'"><br /><span class="badge badge-danger badge-pill">&nbsp;</span> <%- lang.applicants.sentences.register_physical_address_empty %></span>
+                                                    <span v-if="validation_physical_address == 'empty'"><br /><span class="badge badge-danger badge-pill">&nbsp;</span> <%- lang.applicants.sentences.register_double_check_physical_address_empty %></span>
                                                     <span v-if="validation_password == 'empty'"><br /><span class="badge badge-danger badge-pill">&nbsp;</span> <%- lang.applicants.sentences.register_double_check_password_empty %></span>
                                                     <span v-if="validation_password == 'insufficient'"><br /><span class="badge badge-danger badge-pill">&nbsp;</span> <%- lang.applicants.sentences.register_double_check_password_insufficient %>.</span>
+                                                    <span v-if="validation_contact_number == 'empty'"><br /><span class="badge badge-danger badge-pill">&nbsp;</span> <%- lang.applicants.sentences.register_double_check_contact_number_empty %></span>
                                                     <span v-if="validation_name == 'empty'"><br /><span class="badge badge-danger badge-pill">&nbsp;</span> <%- lang.applicants.sentences.register_double_check_name_empty %></span>
                                                     <span v-if="validation_confirm_password == 'not match'"><br /><span class="badge badge-danger badge-pill">&nbsp;</span> <%- lang.applicants.sentences.register_double_check_confirm_password_not_match %></span>
                                                     <span v-if="validation_location == 'empty'"><br /><span class="badge badge-danger badge-pill">&nbsp;</span> <%- lang.applicants.sentences.register_double_check_location_empty %></span>
-                                                    <span v-if="validation_nationality == 'empty'"><br /><span class="badge badge-danger badge-pill">&nbsp;</span><%- lang.applicants.sentences.register_double_check_nationality_empty %></span>
+                                                    <span v-if="validation_nationality == 'empty'"><br /><span class="badge badge-danger badge-pill">&nbsp;</span> <%- lang.applicants.sentences.register_double_check_nationality_empty %></span>
                                                 </div>
                                             </div>
                                         </div>
@@ -74,6 +75,9 @@
                                             <br />
                                             <label><%- lang.applicants.words.register_confirm_password %></label>
                                             <input type="password" class="form-control" placeholder="<%- lang.applicants.words.register_confirm_password %>" v-model="confirm_password"/>
+                                            <br />
+                                            <label><%- lang.applicants.words.register_contact_number %></label>
+                                            <input type="text" class="form-control" placeholder="<%- lang.applicants.words.register_contact_number %>" v-model="contact_number"/>
                                         </div>
                                         <div class="col-md-6 col-12">
                                         <br />
@@ -134,6 +138,7 @@
                 email_address: "",
                 password: "",
                 confirm_password: "",
+                contact_number: "",
                 name: "",
                 physical_address: "",
                 location: "",
@@ -145,6 +150,7 @@
                 validation_duplicate: false,
                 validation_password: "untouched",
                 validation_confirm_password: "untouched",
+                validation_contact_number: "untouched",
                 validation_physical_address: "untouched",
                 validation_location: "untouched",
                 validation_nationality: "untouched",
@@ -180,7 +186,6 @@
                     } else {
                         registerModule.validation_password = "fine"
                     }
-                    registerModule.check_duplicates(registerModule.email_address, registerModule.wallet_address)
                     registerModule.preview_validate();
                 },
                 confirm_password: (cfm_pwd) => {
@@ -190,6 +195,14 @@
                         registerModule.validation_confirm_password = "not match"
                     } else {
                         registerModule.validation_confirm_password = "match"
+                    }
+                    registerModule.preview_validate();
+                },
+                contact_number: (cn) => {
+                    if (cn.length === 0) {
+                        registerModule.validation_contact_number = "empty"
+                    } else {
+                        registerModule.validation_contact_number = "fine"
                     }
                     registerModule.preview_validate();
                 },
@@ -258,6 +271,7 @@
                         if (registerModule.validation_email === "untouched") registerModule.validation_email = "empty"
                         if (registerModule.validation_password === "untouched") registerModule.validation_password = "empty"
                         if (registerModule.validation_confirm_password === "untouched") registerModule.validation_confirm_password = "empty"
+                        if (registerModule.validation_contact_number === "untouched") registerModule.validation_contact_number = "empty"
                         if (registerModule.validation_name === "untouched") registerModule.validation_name = "empty"
                         if (registerModule.validation_physical_address === "untouched") registerModule.validation_physical_address = "empty"
                         if (registerModule.validation_location === "untouched") registerModule.validation_location = "empty"
@@ -272,6 +286,7 @@
                             name: registerModule.name,
                             location: registerModule.location,
                             nationality: registerModule.nationality,
+                            contact_number: registerModule.contact_number
                         }).then((res)=>{
                             registerModule.status = res.data.status
                             if (res.data.status == "ok") {
@@ -289,6 +304,7 @@
                     if (registerModule.validation_email === "invalid" || registerModule.validation_email === "empty") vpvw = true
                     if (registerModule.validation_password === "empty" || registerModule.validation_password === "insufficient") vpvw = true
                     if (registerModule.validation_confirm_password === "empty" || registerModule.validation_confirm_password === "not match") vpvw = true
+                    if (registerModule.validation_contact_number === "empty") vpvw = true
                     if (registerModule.validation_name === "empty") vpvw = true
                     if (registerModule.validation_physical_address === "empty") vpvw = true
                     if (registerModule.validation_location === "empty") vpvw = true
@@ -302,6 +318,7 @@
                     if (registerModule.validation_email === "invalid" || registerModule.validation_email === "empty" || registerModule.validation_email === "untouched") validating = false
                     if (registerModule.validation_password === "empty" || registerModule.validation_password === "insufficient" || registerModule.validation_password === "untouched") validating = false
                     if (registerModule.validation_confirm_password === "empty" || registerModule.validation_confirm_password === "not match" || registerModule.validation_confirm_password === "untouched") validating = false
+                    if (registerModule.validation_contact_number === "empty" || registerModule.validation_contact_number === "untouched") validating = false
                     if (registerModule.validation_name === "empty" || registerModule.validation_name === "untouched") validating = false
                     if (registerModule.validation_physical_address === "empty" || registerModule.validation_wallet === "untouched") validating = false
                     if (registerModule.validation_location === "empty" || registerModule.validation_location === "untouched") validating = false

@@ -5,7 +5,6 @@ const express = require('express')
 const securer = require('./securer')
 const session = require('express-session')
 const MongoStore = require('connect-mongo')(session);
-const serveIndex = require('serve-index')
 const logger = require('./logger')
 const app = express()
 
@@ -38,11 +37,16 @@ module.exports = {
     getExperiences: getExperiences,
     saveCertificate: saveCertificate,
     getCertificates: getCertificates,
+    addSkill: addSkill,
+    getSkills: getSkills,
+    addLanguageProficiency: addLanguageProficiency,
+    getLanguageProficiencies: getLanguageProficiencies,
+    getActiveAnnouncements: getActiveAnnouncements
 }
 
 // Async Functions
 
-async function apply(walletAddress, emailAddress, password, name, physicalAddress, nationality, location, salaryFlooring = 0, salaryCeiling = 0, exists = true, nameChanges = 0) {
+async function apply(walletAddress, emailAddress, password, contact_number, name, physicalAddress, nationality, location, salaryFlooring = 0, salaryCeiling = 0, exists = true, nameChanges = 0) {
     return new Promise((resolve, reject) => {
         mongo.connect(mongourl, mongoopts, (err, con) => {
             if (err)
@@ -55,6 +59,7 @@ async function apply(walletAddress, emailAddress, password, name, physicalAddres
                 walletAddress: walletAddress,
                 emailAddress: emailAddress,
                 password: securer.hashpassword(password),
+                contact_number: contact_number,
                 name: name,
                 nameChanges: nameChanges,
                 physicalAddress: physicalAddress,
@@ -113,7 +118,7 @@ async function login(emailAddress, password) {
         mongo.connect(mongourl, mongoopts, (err, con) => {
             if (err) reject(err)
             db = con.db('digitalme')
-            var query = {emailAddress: emailAddress}
+            var query = {emailAddress: emailAddress, exists: true}
             db.collection("applicants").find(query).toArray(function(err, result) {
                 if (err != null) {
                     return reject(err)
@@ -206,7 +211,7 @@ async function countInvalidDocuments(walletAddress) {
         mongo.connect(mongourl, mongoopts, (err, con) => {
             if (err) reject(err)
             db = con.db('digitalme')
-            var query = {walletAddress: walletAddress, valid: true}
+            var query = {walletAddress: walletAddress, valid: false}
             db.collection("applicants_documents").find(query).count(function(err, result) {
                 if (err != null) {
                     return reject(err)
@@ -300,6 +305,106 @@ async function getCertificates(walletAddress) {
             db = con.db('digitalme')
             var query = {walletAddress: walletAddress}
             db.collection("applicants_certificates").find(query).sort({uploadDate: -1}).toArray(function(err, result) {
+                if (err != null) {
+                    return reject(err)
+                } else {
+                    return resolve(result)
+                }
+            })
+        })
+    })
+}
+
+async function addSkill(walletAddress, skill) {
+    return new Promise((resolve, reject) => {
+        mongo.connect(mongourl, mongoopts, (err, con) => {
+            if (err)
+            {
+                reject(err)
+            }
+            db = con.db('digitalme')
+            var document = {
+                id: walletAddress+"-"+skill,
+                walletAddress: walletAddress,
+                skill: skill
+            }
+            var insertion = db.collection('applicants_skills').insertOne(document, (err, result) => {
+                if (err !== null) {
+                    return reject(err)
+                } else {
+                    return resolve(document.id)
+                }
+            })
+        })
+    })
+}
+
+async function getSkills(walletAddress) {
+    return new Promise((resolve, reject) => {
+        mongo.connect(mongourl, mongoopts, (err, con) => {
+            if (err) reject(err)
+            db = con.db('digitalme')
+            var query = {walletAddress: walletAddress}
+            db.collection("applicants_skills").find(query).toArray(function(err, result) {
+                if (err != null) {
+                    return reject(err)
+                } else {
+                    return resolve(result)
+                }
+            })
+        })
+    })
+}
+
+async function addLanguageProficiency(walletAddress, language, level) {
+    return new Promise((resolve, reject) => {
+        mongo.connect(mongourl, mongoopts, (err, con) => {
+            if (err)
+            {
+                reject(err)
+            }
+            db = con.db('digitalme')
+            var document = {
+                id: walletAddress+"-"+language,
+                walletAddress: walletAddress,
+                language: language,
+                level: level
+            }
+            var insertion = db.collection('applicants_language_proficiencies').insertOne(document, (err, result) => {
+                if (err !== null) {
+                    return reject(err)
+                } else {
+                    return resolve(document.id)
+                }
+            })
+        })
+    })
+}
+
+async function getLanguageProficiencies(walletAddress) {
+    return new Promise((resolve, reject) => {
+        mongo.connect(mongourl, mongoopts, (err, con) => {
+            if (err) reject(err)
+            db = con.db('digitalme')
+            var query = {walletAddress: walletAddress}
+            db.collection("applicants_language_proficiencies").find(query).sort({uploadDate: -1}).toArray(function(err, result) {
+                if (err != null) {
+                    return reject(err)
+                } else {
+                    return resolve(result)
+                }
+            })
+        })
+    })
+}
+
+async function getActiveAnnouncements(language) {
+    return new Promise((resolve, reject) => {
+        mongo.connect(mongourl, mongoopts, (err, con) => {
+            if (err) reject(err)
+            db = con.db('digitalme')
+            var query = {language: language, active: true}
+            db.collection("announcements").find(query).sort({date: -1}).toArray(function(err, result) {
                 if (err != null) {
                     return reject(err)
                 } else {

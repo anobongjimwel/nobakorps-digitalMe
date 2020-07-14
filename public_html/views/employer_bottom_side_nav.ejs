@@ -1,4 +1,4 @@
-<div class="col-lg-3 pt-4">
+<div class="col-12 d-lg-none pt-4">
     <div class="card">
         <div class="card-body">
             <h6 class="card-title"><%- lang.applicants.words.nav_digitalmelinks %></h6>
@@ -19,21 +19,5 @@
             </p>
         </div>
     </div>
-    <%
-        var adCount = 0
-        for (var adc in lang.ads) adCount+=1
-        if (adc != 0) {
-        var ad = lang.ads[Math.floor(Math.random() * adc)]
-    %>
-    <div class="card mt-4">
-        <img class="card-img-top" src="/img/ads/<%- ad.img %>" alt="Ad">
-        <div class="card-body">
-            <p class="card-description" style="overflow-x: hidden">
-                <span style="font-size: 0.75em"><%- lang.applicants.words.nav_sponsored %></span><br />
-                <span style="font-weight: 600; line-height: 1; white-space: nowrap; font-size: 1.05em"><%- ad.title %></span><br />
-                <span style="font-size: 1em"><%- ad.description %></span>
-            </p>
-        </div>
-    </div>
-    <% } %>
+    <%- include ('employer_ad_placement') %>
 </div>

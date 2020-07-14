@@ -28,7 +28,7 @@
                                         </div>
                                         <br />
                                     </div>
-                                    <form method="post" action="/applicant/document/upload"enctype="multipart/form-data" onsubmit="return submitDocument()">
+                                    <form method="post" action="/applicant/document-upload"enctype="multipart/form-data" onsubmit="return submitDocument()">
                                         <label for="doctype"><%- lang.applicants.words.document_type%>:</label>
                                         <select id="doctype" class="form-control" name="doctype"  v-model="documentType">
                                             <% for (var doctype in lang.applicants.words.doc_types) { %>
@@ -71,7 +71,7 @@
                             <div class="card">
                                 <div class="card-body">
                                     <%- languageProcessor.renderSentence(lang.applicants.sentences.documentupload_invalidated_documents, {"sva-docs": [applicant_invalidate_documents_ctr, lang.applicants.words.documentupload_invalidateddocs[0], lang.applicants.words.documentupload_invalidateddocs[1] ]}) %><br />
-                                    <a href="#" class="navlink"><%- lang.applicants.sentences.documentupload_why_is_this_being_stored %></a>
+                                    <a href="#" class="navlink"><%- lang.applicants.sentences.documentupload_why_are_these_being_stored %></a>
                                 </div>
                             </div>
                         </div>
