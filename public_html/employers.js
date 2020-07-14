@@ -74,7 +74,7 @@ async function apply(walletAddress, emailAddress, password, contact_number, name
                     return reject(err)
                 } else {
                     logger.logSuccess(walletAddress + " has been added as an applicant.")
-                    // APPLICANT INSERT IN BLOCKCHAIN
+                    // TODO: APPLICANT INSERT IN BLOCKCHAIN
                     return resolve(true)
                 }
             })
