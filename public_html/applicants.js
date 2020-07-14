@@ -8,11 +8,16 @@ const MongoStore = require('connect-mongo')(session);
 const serveindex = require('serve-index')
 const logger = require('./logger')
 const app = express()
+const web3init = require('web3')
+const web3 = new web3init(web3.currentProvider)
 
 var mongourl = "mongodb://localhost:27017"
 var mongoopts = { useUnifiedTopology: true }
 
 var db
+var applicantContractAddress = "0xd9aC9BAFc7F641aA7F3f84e188fd954880194509"
+
+var applicantsContract = new web3.eth.Contract()
 
 app.use(session({
     secret: "digitalMeSecretString",

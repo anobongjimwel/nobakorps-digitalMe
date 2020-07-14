@@ -8,11 +8,11 @@ const serveindex = require('serve-index')
 const MongoStore = require('connect-mongo')(session);
 const logger = require('./logger')
 const app = express()
-
 var mongourl = "mongodb://localhost:27017"
 var mongoopts = { useUnifiedTopology: true }
 
 var db
+
 
 app.use(session({
     secret: "digitalMeSecretString",
